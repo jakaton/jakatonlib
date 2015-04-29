@@ -30,7 +30,7 @@ class Scorer():
     
     def afinn(self,text):
         """Scores of affinity based on affinity list"""
-        url=self.root+"/api/v1.0/score/affin"
+        url=self.root+"/api/v1.0/score/afinn"
         res=requests.post(url=url,
                           data=text.encode('utf-8'))
         return res.json()
