@@ -32,4 +32,28 @@ class MonkeyLearn():
         return json.loads(response.text)
 
         
-        
+    def keyword(self,text):
+        """Keyword extractor per line in text"""
+        data={
+            'text_list': text.split('\n')   
+        }
+        response = requests.post(
+             "https://api.monkeylearn.com/v2/extractors/ex_eV2dppYE/extract/",
+                data=json.dumps(data),
+                headers={'Authorization': 'Token {0}'.format(self.api_token),
+                        'Content-Type': 'application/json'})
+        return json.loads(response.text)
+
+    def ner(self,text):
+        """Name entity extractor per line in text"""
+        data={
+            'text_list': text.split('\n')   
+        }
+        response = requests.post(
+            "https://api.monkeylearn.com/v2/extractors/ex_Kc8uzhSi/extract/",
+                data=json.dumps(data),
+                headers={'Authorization': 'Token {0}'.format(self.api_token),
+                        'Content-Type': 'application/json'})
+        return json.loads(response.text)
+
+   
